@@ -6,18 +6,18 @@ require 'json'
 # return all your friends with interests listed on facebook, along
 # with their interests
 
+# change this to the maximum number of entries you want back from the call
 limit = 500
 fields = "name,id,interests"
 
+# change to your fb token--make sure you check off that you want to
+# view friends' interests
 access_token = ""
-
 
 res = Net::HTTP.get_response(URI("https://graph.facebook.com/me/friends?fields=#{fields}&limit=#{limit}&access_token=#{access_token}"))
 
-
 people = JSON.parse(res.body)
 people_with_interests = []
-
 
 people_with_interests = people["data"].select { |person|  person['interests'] }
 
@@ -38,10 +38,4 @@ CSV.open("friends_with_interests.csv", "w") do |csv|
   end
 end
 
-
-
-
-
-
-
-
+ 
