@@ -1,3 +1,4 @@
+New York Lottery - list your friends' interests
 ========
 1. Log onto your Facebook Developer account. Go to https://developers.facebook.com/tools/explorer
 2. Click the "Get Access Token" button
